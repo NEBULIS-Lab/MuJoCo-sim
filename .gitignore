@@ -1,0 +1,36 @@
+# Python environments and generated packages
+.conda/
+.venv/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Editors, operating systems, and logs
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.log
+
+# Data is private by default. The current scripted teaching example is public.
+datasets/*
+!datasets/lift_scripted_test_3.h5
+
+# Generated artifacts are private by default. Current teaching artifacts are public.
+artifacts/*
+!artifacts/commvla_lift_test_3/
+!artifacts/commvla_lift_test_3/**
+!artifacts/replay/
+!artifacts/replay/**
+!artifacts/smoke/
+!artifacts/smoke/**

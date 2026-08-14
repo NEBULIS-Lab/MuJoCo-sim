@@ -1,0 +1,18 @@
+{
+  "task_name": "MuJoCoLift-rs",
+  "global_instruction": "Lift the red cube above the table.",
+  "agents": [
+    {
+      "agent_id": 0,
+      "role_instruction": "Move to the red cube, grasp it, and lift it vertically.",
+      "local_camera": "robot0_eye_in_hand"
+    }
+  ],
+  "cameras": {
+    "global": "agentview",
+    "agents": [
+      "robot0_eye_in_hand"
+    ],
+    "known_shared_views": []
+  }
+}

@@ -1,0 +1,11 @@
+name: multiarm-sim
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.10.20
+  - pip
+  - pip:
+      - -r requirements-sim.txt
+
