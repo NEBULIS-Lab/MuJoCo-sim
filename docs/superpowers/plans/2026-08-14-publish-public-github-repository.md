@@ -35,7 +35,7 @@
 - Consumes: current commands in `scripts/`, user guides in `docs/`, and the current sample files under `datasets/` and `artifacts/`.
 - Produces: a Chinese-first `README.md`, an MIT `LICENSE`, and ignore rules that expose only the approved portable snapshot.
 
-- [ ] **Step 1: Verify that the current README does not yet satisfy the publication contract**
+- [x] **Step 1: Verify that the current README does not yet satisfy the publication contract**
 
 Run:
 
@@ -47,7 +47,7 @@ done
 
 Expected: FAIL because the current README does not contain all six public-learning sections.
 
-- [ ] **Step 2: Replace `.gitignore` with explicit machine-state exclusions and teaching allowlists**
+- [x] **Step 2: Replace `.gitignore` with explicit machine-state exclusions and teaching allowlists**
 
 Use these rules:
 
@@ -90,7 +90,7 @@ artifacts/*
 !artifacts/smoke/**
 ```
 
-- [ ] **Step 3: Add the MIT license**
+- [x] **Step 3: Add the MIT license**
 
 Create `LICENSE` with the standard MIT text beginning:
 
@@ -102,7 +102,7 @@ Copyright (c) 2026 NEBULIS-Lab
 
 and containing the complete permission grant and warranty disclaimer.
 
-- [ ] **Step 4: Rewrite the root README as the complete operator and learner entrypoint**
+- [x] **Step 4: Rewrite the root README as the complete operator and learner entrypoint**
 
 Use the title `# MuJoCo-sim：多机械臂仿真与示范数据采集平台` and include these exact top-level sections:
 
@@ -145,7 +145,7 @@ The README must:
 - state that current sample data is scripted single-arm data and that human dual-arm data must be collected locally;
 - explain future data privacy, Git LFS / Release use, and the planned three-arm then four-arm sequence.
 
-- [ ] **Step 5: Validate README headings, commands, and relative links**
+- [x] **Step 5: Validate README headings, commands, and relative links**
 
 Run the publication-contract loop from Step 1 and expect PASS. Then run:
 
@@ -169,7 +169,7 @@ Expected: all relative links resolve and every documented CLI imports successful
 - Consumes: the reviewed publication files from Task 1 and the existing simulation project.
 - Produces: local Git repository on `main` with one verified initial commit.
 
-- [ ] **Step 1: Scan candidate files for secrets without printing secret values**
+- [x] **Step 1: Scan candidate files for secrets without printing secret values**
 
 Run:
 
@@ -181,7 +181,7 @@ rg -l --hidden --glob '!.venv/**' --glob '!.conda/**' --glob '!datasets/**' \
 
 Expected: no credential-bearing project file. Investigate any returned filename before proceeding; never print the matched value.
 
-- [ ] **Step 2: Validate the included sample data and artifact inventory**
+- [x] **Step 2: Validate the included sample data and artifact inventory**
 
 Run:
 
@@ -192,7 +192,7 @@ find artifacts -type f -printf '%s %p\n' | sort -k2
 
 Expected: three readable trajectories and seven current teaching artifacts.
 
-- [ ] **Step 3: Initialize Git with `main` and inspect ignore behavior**
+- [x] **Step 3: Initialize Git with `main` and inspect ignore behavior**
 
 Run:
 
@@ -205,7 +205,7 @@ git check-ignore artifacts/replay/lift_scripted_test_3_ep1.mp4 && exit 1 || true
 
 Expected: the environment and egg-info are ignored, while the approved sample HDF5 and replay MP4 are not ignored.
 
-- [ ] **Step 4: Stage the approved project and inspect every staged path and size**
+- [x] **Step 4: Stage the approved project and inspect every staged path and size**
 
 The user has explicitly confirmed that the entire portable project is in scope, so run:
 
@@ -218,7 +218,7 @@ git ls-files -z | xargs -0 -r stat -c '%s %n' | sort -nr | head -30
 
 Expected: sample data and artifacts are present; `.venv/`, `.conda/`, caches, and `.egg-info/` are absent; no staged file exceeds 100 MB.
 
-- [ ] **Step 5: Run complete simulation and syntax verification on the staged tree**
+- [x] **Step 5: Run complete simulation and syntax verification on the staged tree**
 
 Run:
 
@@ -229,7 +229,7 @@ MUJOCO_GL=egl MUJOCO_EGL_DEVICE_ID=6 .venv/bin/python -m pytest -q
 
 Expected: all tests and compilation pass.
 
-- [ ] **Step 6: Set local commit identity if needed and create the initial commit**
+- [x] **Step 6: Set local commit identity if needed and create the initial commit**
 
 Run:
 
@@ -252,7 +252,7 @@ Expected: one root commit on clean local `main`.
 - Consumes: clean verified `main` root commit from Task 2 and authenticated GitHub CLI account `clzJY`.
 - Produces: public GitHub repository, tracked `origin/main`, repository description, and six topics.
 
-- [ ] **Step 1: Reconfirm authenticated account and repository nonexistence**
+- [x] **Step 1: Reconfirm authenticated account and repository nonexistence**
 
 Run:
 
@@ -266,7 +266,7 @@ fi
 
 Expected: account check passes and the target still does not exist.
 
-- [ ] **Step 2: Create the public repository and push `main`**
+- [x] **Step 2: Create the public repository and push `main`**
 
 Run:
 
@@ -281,7 +281,7 @@ gh repo create NEBULIS-Lab/MuJoCo-sim \
 
 Expected: GitHub creates only `NEBULIS-Lab/MuJoCo-sim`, pushes the root commit, and configures `main` to track `origin/main`. If organization policy rejects creation, stop and report the permission error without creating another repository.
 
-- [ ] **Step 3: Add repository topics**
+- [x] **Step 3: Add repository topics**
 
 Run:
 
@@ -297,7 +297,7 @@ gh repo edit NEBULIS-Lab/MuJoCo-sim \
 
 Expected: all six topics are visible on the repository.
 
-- [ ] **Step 4: Verify remote identity, visibility, branch, commit, and clean state**
+- [x] **Step 4: Verify remote identity, visibility, branch, commit, and clean state**
 
 Run:
 
